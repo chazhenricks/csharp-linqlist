@@ -4,13 +4,20 @@ using System.Linq;
 
 namespace linqlist
 {
-    public class Customer
-{
-    public string Name { get; set; }
-    public double Balance { get; set; }
-    public string Bank { get; set; }
+        // Define a Customer
+        public class Customer
+    {
+        public string Name { get; set; }
+        public double Balance { get; set; }
+        public string Bank { get; set; }
 
-}
+    }
+    // Define a bank
+    public class Bank
+    {
+        public string Symbol { get; set; }
+        public string Name { get; set; }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -124,6 +131,13 @@ namespace linqlist
             Console.WriteLine($"{num} is not a perfect square");
         }
 
+        List<Bank> banks = new List<Bank>() {
+            new Bank(){ Name="First Tennessee", Symbol="FTB"},
+            new Bank(){ Name="Wells Fargo", Symbol="WF"},
+            new Bank(){ Name="Bank of America", Symbol="BOA"},
+            new Bank(){ Name="Citibank", Symbol="CITI"},
+        };
+
         List<Customer> customers = new List<Customer>() {
             new Customer(){ Name="Bob Lesman", Balance=80345.66, Bank="FTB"},
             new Customer(){ Name="Joe Landy", Balance=9284756.21, Bank="WF"},
@@ -142,14 +156,27 @@ namespace linqlist
         }
 
         var  millionairs = customers.GroupBy(x => x.Bank);
-        
-        // = from cust in customers
-        // group cust by cust.Balance > 1000000;
-        
 
         foreach(var cust in millionairs){
             Console.WriteLine("{0} - {1}", cust.Key, cust.Count(x => x.Balance >= 1000000));
         }
+
+        var MillionairReport = 
+        from cust in customers
+        from bank in banks
+        select new {cust, bank};
+
+        foreach(var ballers in MillionairReport){
+            Console.WriteLine($"{ballers.Name} {")
+        }
+
+
+l
+
+            // var q = 
+            // from c in categories 
+            // join p in products on c equals p.Category 
+            // select new { Category = c, p.ProductName }; 
 
         }
     }
