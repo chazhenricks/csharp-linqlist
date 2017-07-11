@@ -141,12 +141,14 @@ namespace linqlist
             Console.WriteLine($"{cust.Name} has ${cust.Balance} in thier {cust.Bank} account");
         }
 
-        var  millionairs = from cust in customers
-        group cust by cust.Balance > 1000000 into ballers
-        select new {Bank = ballers.Key, numbers = ballers};
+        var  millionairs = customers.GroupBy(x => x.Bank);
+        
+        // = from cust in customers
+        // group cust by cust.Balance > 1000000;
+        
 
         foreach(var cust in millionairs){
-            Console.WriteLine($"{cust.Bank} {cust.numbers}");
+            Console.WriteLine("{0} - {1}", cust.Key, cust.Count(x => x.Balance >= 1000000));
         }
 
         }
