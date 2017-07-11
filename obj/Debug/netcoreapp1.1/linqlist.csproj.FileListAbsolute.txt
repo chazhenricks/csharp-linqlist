@@ -1,0 +1,8 @@
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/bin/Debug/netcoreapp1.1/linqlist.deps.json
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/bin/Debug/netcoreapp1.1/linqlist.runtimeconfig.json
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/bin/Debug/netcoreapp1.1/linqlist.runtimeconfig.dev.json
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/bin/Debug/netcoreapp1.1/linqlist.dll
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/bin/Debug/netcoreapp1.1/linqlist.pdb
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/obj/Debug/netcoreapp1.1/linqlist.AssemblyInfo.cs
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/obj/Debug/netcoreapp1.1/linqlist.dll
+/Users/chazhenricks/workspace/csharp/orientation/exercises/linqlist/obj/Debug/netcoreapp1.1/linqlist.pdb
