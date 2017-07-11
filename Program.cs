@@ -155,28 +155,43 @@ namespace linqlist
             Console.WriteLine($"{cust.Name} has ${cust.Balance} in thier {cust.Bank} account");
         }
 
-        var  millionairs = customers.GroupBy(x => x.Bank);
 
-        foreach(var cust in millionairs){
-            Console.WriteLine("{0} - {1}", cust.Key, cust.Count(x => x.Balance >= 1000000));
+        var bankList = customers.GroupBy(x => x.Bank);
+
+        foreach(var bankMills in bankList){
+            Console.WriteLine("{0} - {1}", bankMills.Key, bankMills.Count(x => x.Balance >=1000000));
         }
+
+
+        IEnumerable<Customer> millionairs = 
+        from customer in customers 
+        where customer.Balance >= 1000000
+        select customer;
+
+        foreach(Customer millionair in millionairs){
+            Console.WriteLine(millionair.Name);
+        }
+
+
+
 
         var MillionairReport = 
-        from cust in customers
-        from bank in banks
-        select new {cust, bank};
-
+        from millionair in millionairs 
+        join bank in banks on millionair.Bank equals bank.Symbol
+        select new {Millionair = millionair.Name, Bank = bank.Name};
+  
         foreach(var ballers in MillionairReport){
-            Console.WriteLine($"{ballers.Name} {")
+            Console.WriteLine(ballers.Millionair + " " + ballers.Bank);
         }
+     
 
 
-l
 
-            // var q = 
-            // from c in categories 
-            // join p in products on c equals p.Category 
-            // select new { Category = c, p.ProductName }; 
+
+        // var MillionairReport= 
+        // from bank in banks 
+        // join customer in customers on bank.Symbol equals customer.Bank into ballerGroup 
+        // select new { Bank = bank, Customers = ballerGroup }; 
 
         }
     }
