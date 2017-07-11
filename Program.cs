@@ -131,6 +131,7 @@ namespace linqlist
             Console.WriteLine($"{num} is not a perfect square");
         }
 
+        //create new list of banks and their symbols
         List<Bank> banks = new List<Bank>() {
             new Bank(){ Name="First Tennessee", Symbol="FTB"},
             new Bank(){ Name="Wells Fargo", Symbol="WF"},
@@ -138,6 +139,7 @@ namespace linqlist
             new Bank(){ Name="Citibank", Symbol="CITI"},
         };
 
+        //create new list of customers 
         List<Customer> customers = new List<Customer>() {
             new Customer(){ Name="Bob Lesman", Balance=80345.66, Bank="FTB"},
             new Customer(){ Name="Joe Landy", Balance=9284756.21, Bank="WF"},
@@ -151,11 +153,13 @@ namespace linqlist
             new Customer(){ Name="Sid Brown", Balance=49582.68, Bank="CITI"}
         };
 
+        //writes each customer and their balance and where their account is
         foreach(Customer cust in customers){
             Console.WriteLine($"{cust.Name} has ${cust.Balance} in thier {cust.Bank} account");
         }
 
 
+        //creates a list of banks
         var bankList = customers.GroupBy(x => x.Bank);
 
         foreach(var bankMills in bankList){
@@ -184,14 +188,6 @@ namespace linqlist
             Console.WriteLine(ballers.Millionair + " " + ballers.Bank);
         }
      
-
-
-
-
-        // var MillionairReport= 
-        // from bank in banks 
-        // join customer in customers on bank.Symbol equals customer.Bank into ballerGroup 
-        // select new { Bank = bank, Customers = ballerGroup }; 
 
         }
     }
